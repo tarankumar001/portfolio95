@@ -1,7 +1,7 @@
 import {create} from 'zustand';
 
 interface AuthState {
-  isAuthenticated: boolean;
+  authenticated: boolean;
   login: () => void;
   logout: () => void;
 }

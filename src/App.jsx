@@ -12,8 +12,6 @@ import MailFolder from './components/MailFolder';
 import WebampPlayer from './components/WinampPlayer';
 import ResumeFile from './components/ResumeFile';
 import Shutdown from './components/Shutdown';
-import MineSweeper from './components/MineSweeper'
-import MsnFolder from './components/MsnFolder';
 import iconInfo from './icon.json'
 import Login from './components/Login';
 import OpenProject from './components/OpenProject';
@@ -21,15 +19,14 @@ import WindowsShutdown from './components/WindowsShutdown';
 import BgSetting from './components/BgSetting';
 import Run from './components/Run';
 import Notification from './components/Notification';
-import BTC from './components/BTC';
 import EmptyFolder from './components/EmptyFolder';
 import ErrorBtn from './components/ErrorBtn';
 import RightClickWindows from './components/RightClickWindows';
 import axios from 'axios';
 import loadingSpin from './assets/loading.gif'
-import NewsApp from './components/NewsApp'
+
 import SpinningCat from './components/SpinningCat';
-import Patch from './components/Patch';
+
 import WindowsDragLogin from './components/WindowsDragLogin';
 import TaskManager from './components/TaskManager';
 import { StyleHide, imageMapping,
@@ -75,8 +72,8 @@ function App() {
   });
 
   const [backgroundImageUrl, setBackgroundImageUrl] = useState('');
-  const [tileBG, setTileBG] = useState('#098684')
-  const [tileScreen, setTileScreen] = useState(true)
+  // const [tileBG, setTileBG] = useState('#098684')
+  // const [tileScreen, setTileScreen] = useState(true)
   const [chatBotActive, setChatBotActive] = useState(false);
   const [runCatVideo, setRunCatVideo] = useState(false)
   const [newsPopup, setNewsPopup] = useState(false)
@@ -108,7 +105,7 @@ function App() {
   const [selectedFolder, setSelectedFolder] = useState({label: 'MyComputer', img: imageMapping('MyComputer')})
   const [currentFolder, setCurrentFolder] = useState('MyComputer')
   const [loading, setLoading] = useState(true)
-  const [btcShow, setBtcShow] = useState(false)
+ 
   const [resumeStartBar, setResumejectStartBar] = useState(false)
   const [projectStartBar, setProjectStartBar] = useState(false)
   const [calenderToggle, setCalenderToggle] = useState(false)
@@ -244,8 +241,8 @@ function App() {
   const [UtilityExpand, setUtilityExpand] = useState(
     {expand: false, show: false, hide: false, focusItem: true, x: 0, y: 0, zIndex: 1,});
   
-  const [PatchExpand, setPatchExpand] = useState(
-    {expand: false, show: false, hide: false, focusItem: true, x: 0, y: 0, zIndex: 1,});
+  // const [PatchExpand, setPatchExpand] = useState(
+  //   {expand: false, show: false, hide: false, focusItem: true, x: 0, y: 0, zIndex: 1,});
   
   const [TaskManagerExpand, setTaskManagerExpand] = useState(
     {expand: false, show: false, hide: false, focusItem: true, x: 0, y: 0, zIndex: 1,});
@@ -299,25 +296,25 @@ function App() {
   const allSetters = [setClippyThanks, setClippySendemail, setClippySong, setClippyUsername];
   const allClears = [ClearTOclippyThanksYouFunction, ClearTOclippySendemailfunction, ClearTOSongfunction, ClearTOclippyUsernameFunction];
 
-  useEffect(() => { // force user to update version by clearing their local storage!
-    setTimeout(() => {
-      handleShow('Patch');
-    }, 2500);
+  // useEffect(() => { // force user to update version by clearing their local storage!
+  //   setTimeout(() => {
+  //     handleShow('Patch');
+  //   }, 2500);
     
     // if(desktopIcon.length !== iconInfo.length) {
     //   localStorage.clear();
     //   location.reload();
     // }
-  },[])
+  // },[])
 
 
 useEffect(() => {
   const handleRightClick = (e) => {
     e.preventDefault();
 
-  if(tileScreen) {
-    return;
-  }
+  // if(tileScreen) {
+  //   return;
+  // }
   
     const iconRect = refBeingClicked.current?.getBoundingClientRect();
     setRightClickPosition({ x: e.clientX, y: e.clientY });
@@ -341,15 +338,15 @@ useEffect(() => {
   return () => {
     document.removeEventListener("contextmenu", handleRightClick);
   };
-}, [tileScreen]);
+}, []);
 
 
   useEffect(() => {
     const handleTouchStart = (e) => {
 
-      if(tileScreen) {
-      return;
-      }
+      // if(tileScreen) {
+      // return;
+      // }
 
       if (dragging) return; // Prevent duplicate triggers
 
@@ -375,7 +372,7 @@ useEffect(() => {
       document.removeEventListener("touchmove", handleTouchEnd);
       document.removeEventListener("touchcancel", handleTouchEnd);
     };
-  }, [tileScreen]);
+  }, []);
 
 
   function handleMobileLongPress(e, icon) { // long press icon on mobile
@@ -895,10 +892,10 @@ function handleShowInfolderMobile(name, type) { //important handleshow for in fo
     weather, setWeather,
     bgRotation, setBgRotation,
     backgroundImageUrl, setBackgroundImageUrl,
-    tileBG, setTileBG,
-    tileScreen, setTileScreen,
+    // tileBG, setTileBG,
+    // tileScreen, setTileScreen,
     chatBotActive, setChatBotActive,
-    PatchExpand, setPatchExpand,
+    // PatchExpand, setPatchExpand,
     runCatVideo, setRunCatVideo,
     newsPopup, setNewsPopup,
     onlineUser,
@@ -932,7 +929,7 @@ function handleShowInfolderMobile(name, type) { //important handleshow for in fo
     selectedFolder, setSelectedFolder,
     currentFolder, setCurrentFolder,
     MyComputerExpand, setMyComputerExpand,
-    btcShow, setBtcShow,
+
     projectStartBar, setProjectStartBar,
     resumeStartBar, setResumejectStartBar,
     calenderToggle, setCalenderToggle,
@@ -1150,9 +1147,9 @@ function handleShowInfolderMobile(name, type) { //important handleshow for in fo
           photoMode={true}
         />
         <TaskManager/>
-        <Patch/>
+       
         <SpinningCat/>
-        <NewsApp/>
+        {/* <NewsApp/> */}
         <RightClickWindows/>
         <Notification/>
         <Shutdown/>
@@ -1163,12 +1160,12 @@ function handleShowInfolderMobile(name, type) { //important handleshow for in fo
         <MailFolder/>
         <ResumeFile/>
         <WebampPlayer/>
-        <MineSweeper/>
-        <MsnFolder/>
+        {/* <MineSweeper/> */}
+        {/* <MsnFolder/> */}
         <OpenProject/>
         <BgSetting/>
         <Run/>
-        {btcShow && <BTC/>}
+        {/* {btcShow && <BTC/>} */}
         <Dragdrop/>
         <Footer/>
       </UserContext.Provider>
@@ -1397,7 +1394,7 @@ function ObjectState() {
     { name: 'Settings',    setter: setBgSettingExpand,  usestate: BgSettingExpand,  color: 'rgba(140, 140, 140, 0.85)', size: 'small' },
     { name: 'Run',         setter: setRunExpand,        usestate: RunExpand,        color: 'rgba(86, 114, 122, 0.85)', size: 'small' },
     { name: 'MyComputer',  setter: setMyComputerExpand, usestate: MyComputerExpand, color: 'rgba(31, 122, 206, 0.85)', size: 'small' },
-    { name: 'Patch',       setter: setPatchExpand,      usestate: PatchExpand,      color: 'rgba(86, 114, 122, 0.85)', size: 'small' },
+    // { name: 'Patch',       setter: setPatchExpand,      usestate: PatchExpand,      color: 'rgba(86, 114, 122, 0.85)', size: 'small' },
     { name: 'Photo',       setter: setPhotoOpenExpand,  usestate: photoOpenExpand,  color: 'rgba(0, 120, 93, 0.85)', size: 'small' },
     { name: 'RecycleBin',  setter: setBinExpand,        usestate: BinExpand,        color: 'rgba(64, 135, 66, 0.85)', size: 'small' },
     { name: 'Paint',       setter: setPaintExpand,      usestate: PaintExpand,      color: 'rgba(193, 178, 46, 0.85)', size: 'small' },
@@ -1456,10 +1453,7 @@ function handleShow(name) {
 
   if(name === '' || !name) return;
 
-  if(name === 'Bitcoin') {
-    setBtcShow(true)
-    return;
-  }
+ 
 
   const lowerCaseName = name.toLowerCase().split(' ').join('');
   const allSetItems = ObjectState();
@@ -1543,7 +1537,7 @@ function handleShow(name) {
     }
   });
 
-  PatchExpand ? null : setTileScreen(false);
+  // PatchExpand ? null : setTileScreen(false);
   
   if(tap.includes(name)) return;
   setStartActive(false);
@@ -1565,11 +1559,7 @@ function handleShowMobile(name) {
     if(name === '' || !name) return;
 
   
-    if(name === 'Bitcoin') {
-      setBtcShow(true)
-      return;
-    }
-  
+ 
     const lowerCaseName = name.toLowerCase().split(' ').join('');
   
     const allSetItems = ObjectState() // call all usestate object
@@ -1646,7 +1636,7 @@ function handleShowMobile(name) {
         item.setter(prev => ({ ...prev, focusItem: false }));
       }
     });
-    PatchExpand ? null : setTileScreen(false)
+    // PatchExpand ? null : setTileScreen(false)
 
     if(tap.includes(name)) return;
     setStartActive(false)
@@ -1798,10 +1788,7 @@ function handleShowMobile(name) {
 
   function deleteTap(name) {
 
-    if(name === 'Bitcoin') {
-      setBtcShow(false)
-      return;
-    }
+
 
     const setState = ObjectState();
     const passedName = name.toLowerCase().split(' ').join('');

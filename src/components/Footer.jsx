@@ -5,21 +5,21 @@ import startIcon from '../assets/95icon.png';
 import run from '../assets/run.png';
 import github from '../assets/github.png';
 import linked from '../assets/linkedin.png';
-import tile from '../assets/tile.png';
+
 import sidebar from '../assets/sidebar95.png';
 import display from '../assets/display.png';
 import project from '../assets/regFolder.png';
 import resume from '../assets/folder.png';
 import shutdownicon from '../assets/shutdownicon.png';
 import settings from '../assets/setting.png';
-import btc_icon from '../assets/btc_icon.webp'
+
 import { clippyPhrase, clippySuggest } from './function/ClippyFunction';
 import { BsCheck  } from "react-icons/bs";
 import Calendar from 'react-calendar';
 import { BsFillCaretRightFill } from "react-icons/bs";
 import binEmp from '../assets/bin2.png'
 import bin from '../assets/bin.png'
-import news from '../assets/news.png'
+
 
 
 export default function Footer() {
@@ -35,10 +35,10 @@ export default function Footer() {
    
 
     const { 
-        tileScreen, setTileScreen,
+        
         onlineUser,
-        newsPopup, setNewsPopup,
-        btcShow, setBtcShow,
+        // newsPopup, setNewsPopup,
+        // btcShow, setBtcShow,
         isTouchDevice,
         desktopIcon,
         projectStartBar, setProjectStartBar,
@@ -133,21 +133,21 @@ export default function Footer() {
                 setProjectStartBar(false);
             },
         },
-        {
-            className: "linked",
-            imgSrc: tile,
-            imgAlt: "Tile",
-            style: { borderRadius: '5px' },
-            spanText: "Tile Screen",
-            onClick: () => {
-                setTileScreen(true),
-                setStartActive(false)
-            },
-            onmouseenter: () => {
-                setResumejectStartBar(false);
-                setProjectStartBar(false);
-            },
-        },
+        // {
+        //     className: "linked",
+        //     imgSrc: tile,
+        //     imgAlt: "Tile",
+        //     style: { borderRadius: '5px' },
+        //     spanText: "Tile Screen",
+        //     onClick: () => {
+        //         setTileScreen(true),
+        //         setStartActive(false)
+        //     },
+        //     onmouseenter: () => {
+        //         setResumejectStartBar(false);
+        //         setProjectStartBar(false);
+        //     },
+        // },
         {
             className: "shutdownicon",
             imgSrc: settings,
@@ -479,7 +479,7 @@ export default function Footer() {
                 </div>
 
                 <div className="time">
-                    <img src={news} alt="news" 
+                    {/* <img src={news} alt="news" 
                             style={{
                                 position: 'relative',
                                 width: '18px',
@@ -499,7 +499,7 @@ export default function Footer() {
                             zIndex: '2'
                         }} 
                         onClick={() => setBtcShow(!btcShow)}
-                    />
+                    /> */}
                     <img src={display} alt="display" 
                         onClick={(e) => {
                             e.stopPropagation()

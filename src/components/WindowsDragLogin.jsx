@@ -2,8 +2,8 @@ import UseContext from '../Context';
 import { useState, useCallback, useContext, useEffect } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
-import Tile from './Tile';
-import '../css/Tile.css'
+// import Tile from './Tile';
+// import '../css/Tile.css'
 import dayjs from 'dayjs';
 
 export default function WindowsDragLogin() {

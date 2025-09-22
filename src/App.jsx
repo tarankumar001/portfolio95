@@ -38,7 +38,7 @@ import { StyleHide, imageMapping,
 
 
 function App() {
-  const [ringMsn, setRingMsn] = useState(false)
+  // ringMsn removed
   const [showChart, setShowChart] = useState(false)
   const [keyRef, setKeyRef] = useState(0)
   const [localBg, setLocalBg] = useState(() => {
@@ -74,7 +74,6 @@ function App() {
   const [backgroundImageUrl, setBackgroundImageUrl] = useState('');
   // const [tileBG, setTileBG] = useState('#098684')
   // const [tileScreen, setTileScreen] = useState(true)
-  const [chatBotActive, setChatBotActive] = useState(false);
   const [runCatVideo, setRunCatVideo] = useState(false)
   const [newsPopup, setNewsPopup] = useState(false)
   const [onlineUser, setOnlineUser] = useState(0)
@@ -223,8 +222,7 @@ function App() {
   const [MineSweeperExpand, setMineSweeperExpand] = useState(
   {expand: false, show: false, hide: false, focusItem: true, x: 0, y: 0, zIndex: 1,});
 
-  const [MSNExpand, setMSNExpand] = useState(
-    {expand: false, show: false, hide: false, focusItem: true, x: 0, y: 0, zIndex: 1,});
+  // MSN removed
 
   const [BgSettingExpand, setBgSettingExpand] = useState(
     {expand: false, show: false, hide: false, focusItem: true, x: 0, y: 0, zIndex: 1,});
@@ -480,10 +478,7 @@ useEffect(() => {
           if (data.key) {
             setKeyChatSession(data.key);
           } 
-          if (data.ring) {
-            setRingMsn(true)
-          }
-          else if (data.name && data.chat) {
+          if (data.name && data.chat) {
             setChatData(prevData => [...prevData, data]);
             setLoadedMessages(prev => [...prev, data]);
             setAllowNoti(true);
@@ -564,20 +559,13 @@ useEffect(() => {
 
 
   useEffect(() => { // noti
-    if(allowNoti){
+  if(allowNoti){
 
       if (chatData.length) {
         endOfMessagesRef.current?.scrollIntoView({ behavior: "smooth" });
       }
 
-      if(!MSNExpand.show || MSNExpand.hide) {
-        setNotiOn(false);
-        setTimeout(() => {
-            clearTimeout(clearNotiTimeOut)
-            setNotiOn(true);
-            setNewMessage('msn');  // Notification message
-        }, 100);
-      }
+      // MSN notifications removed
     }
       
   },[chatData])
@@ -876,8 +864,7 @@ function handleShowInfolderMobile(name, type) { //important handleshow for in fo
 
 
   const contextValue = {
-    ringMsnOff,
-    ringMsn, setRingMsn,
+  // ringMsn removed
     showChart, setShowChart,
     setRegErrorPopUp, setRegErrorPopUpVal,
     keyRef, setKeyRef,
@@ -894,7 +881,7 @@ function handleShowInfolderMobile(name, type) { //important handleshow for in fo
     backgroundImageUrl, setBackgroundImageUrl,
     // tileBG, setTileBG,
     // tileScreen, setTileScreen,
-    chatBotActive, setChatBotActive,
+  // chatBot removed
     // PatchExpand, setPatchExpand,
     runCatVideo, setRunCatVideo,
     newsPopup, setNewsPopup,
@@ -998,7 +985,7 @@ function handleShowInfolderMobile(name, type) { //important handleshow for in fo
     deleteTap,
     shutdownWindow, setShutdownWindow,
     MineSweeperExpand, setMineSweeperExpand,
-    MSNExpand, setMSNExpand,
+  // MSN removed
     chatData, setChatData,
     chatValue, setChatValue,
     createChat,
@@ -1288,14 +1275,7 @@ function handleDrop(e, name, target, oldFolderID) {
     }
 
 
-    function ringMsnOff() {
-
-      if(socket.current) {
-        socket.current.send(JSON.stringify({ ring: true }));
-      } else {
-          console.error('WebSocket is not initialized.');
-      }
-    }
+    // ringMsnOff removed
 
   
     async function createChat() { // create chat
@@ -1317,13 +1297,12 @@ function handleDrop(e, name, target, oldFolderID) {
       offendedWords.forEach(word => filter.addWords(word));
   
       const newChatVal = filter.clean(chatValue);
-      const payload = {
-          chat: newChatVal,
-          key: KeyChatSession,
-          mouse: detectMouse,
-          touch: isTouchDevice,
-          chatBotActive: chatBotActive,
-      };
+    const payload = {
+      chat: newChatVal,
+      key: KeyChatSession,
+      mouse: detectMouse,
+      touch: isTouchDevice,
+    };
 
       if (userNameValue.trim().length < 1) {
         payload.name = 'Anonymous'
@@ -1383,13 +1362,12 @@ function ObjectState() {
     { name: 'Mail',        setter: setMailExpand,       usestate: MailExpand,       color: 'rgba(178, 26, 77, 0.85)', size: 'small' },
     { name: 'Nft',         setter: setNftExpand,        usestate: NftExpand,        color: 'rgba(142, 29, 126, 0.85)', size: 'small' },
     { name: 'Note',        setter: setNoteExpand,       usestate: NoteExpand,       color: 'rgba(114, 81, 54, 0.85)', size: 'small' },
-    { name: 'AiAgent',     setter: setOpenProjectExpand,usestate: openProjectExpand,color: 'rgba(82, 117, 132, 0.85)', size: 'small' },
     { name: '3dObject',    setter: setOpenProjectExpand,usestate: openProjectExpand,color: 'rgba(0, 159, 186, 0.85)', size: 'small' },
     { name: 'Fortune',     setter: setOpenProjectExpand,usestate: openProjectExpand,color: 'rgba(224, 88, 43, 0.85)', size: 'small' },
     { name: 'Winamp',      setter: setWinampExpand,     usestate: WinampExpand,     color: 'rgba(105, 136, 145, 0.85)', size: 'small' },
     { name: 'ResumeFile',  setter: setResumeFileExpand, usestate: ResumeFileExpand, color: 'rgba(133, 165, 67, 0.85)', size: 'small' },
     { name: 'MineSweeper', setter: setMineSweeperExpand,usestate: MineSweeperExpand,color: 'rgba(187, 51, 48, 0.85)', size: 'small' },
-    { name: 'MSN',         setter: setMSNExpand,        usestate: MSNExpand,        color: 'rgba(52, 70, 143, 0.85)', size: 'small' },
+  // MSN removed from ObjectState
     { name: 'Internet',    setter: setOpenProjectExpand,usestate: openProjectExpand,color: 'rgba(0, 159, 186, 0.85)', size: 'small' },
     { name: 'Settings',    setter: setBgSettingExpand,  usestate: BgSettingExpand,  color: 'rgba(140, 140, 140, 0.85)', size: 'small' },
     { name: 'Run',         setter: setRunExpand,        usestate: RunExpand,        color: 'rgba(86, 114, 122, 0.85)', size: 'small' },
@@ -1503,20 +1481,16 @@ function handleShow(name) {
       // Your existing special cases...
       if(lowerCaseName === 'mail') clippySendemailfunction();
       if(lowerCaseName === 'winamp') clippySongFunction();
-      if(lowerCaseName === 'msn') clippyUsernameFunction();
+  // msn removed: if(lowerCaseName === 'msn') clippyUsernameFunction();
       if(lowerCaseName === 'mail') clippySendemailfunction();
         if(lowerCaseName === 'winamp') clippySongFunction();
-        if(lowerCaseName === 'msn') clippyUsernameFunction();
+  // msn removed: if(lowerCaseName === 'msn') clippyUsernameFunction();
         if(lowerCaseName === 'nft') {
           handleDoubleClickiframe('Nft', setOpenProjectExpand, setProjectUrl)
           handleShow('Internet');
         }
         if(lowerCaseName === 'note') {
           handleDoubleClickiframe('Note', setOpenProjectExpand, setProjectUrl)
-          handleShow('Internet');
-        }
-        if(lowerCaseName === 'aiagent') {
-          handleDoubleClickiframe('AiAgent', setOpenProjectExpand, setProjectUrl)
           handleShow('Internet');
         }
         if(lowerCaseName === '3dobject') {
@@ -1542,7 +1516,7 @@ function handleShow(name) {
   if(tap.includes(name)) return;
   setStartActive(false);
 
-  if(name === 'Run' || name === 'Nft' || name === 'Note' || name === 'AiAgent' || name === '3dObject' || name === 'Fortune') return;
+  if(name === 'Run' || name === 'Nft' || name === 'Note' || name === '3dObject' || name === 'Fortune') return;
 
   setTap(prevTap => [...prevTap, name]);
   setDesktopIcon(prevIcons => prevIcons.map(icon => ({...icon, focus: false})));
@@ -1608,17 +1582,13 @@ function handleShowMobile(name) {
       }, 100);
         if(lowerCaseName === 'mail') clippySendemailfunction();
         if(lowerCaseName === 'winamp') clippySongFunction();
-        if(lowerCaseName === 'msn') clippyUsernameFunction();
+  // msn removed: if(lowerCaseName === 'msn') clippyUsernameFunction();
         if(lowerCaseName === 'nft') {
           handleDoubleClickiframe('Nft', setOpenProjectExpand, setProjectUrl)
           handleShow('Internet');
         }
         if(lowerCaseName === 'note') {
           handleDoubleClickiframe('Note', setOpenProjectExpand, setProjectUrl)
-          handleShow('Internet');
-        }
-        if(lowerCaseName === 'aiagent') {
-          handleDoubleClickiframe('AiAgent', setOpenProjectExpand, setProjectUrl)
           handleShow('Internet');
         }
         if(lowerCaseName === '3dobject') {
@@ -1641,7 +1611,7 @@ function handleShowMobile(name) {
     if(tap.includes(name)) return;
     setStartActive(false)
   
-    if(name === 'Run' || name === 'Nft' || name === 'Note' || name === 'AiAgent' || name === '3dObject' || name === 'Fortune')return; // not showing run on tap
+    if(name === 'Run' || name === 'Nft' || name === 'Note' || name === '3dObject' || name === 'Fortune')return; // not showing run on tap
   
     setTap(prevTap => [...prevTap, name]);
     setDesktopIcon(prevIcons => prevIcons.map(icon => ({...icon, focus: false})));

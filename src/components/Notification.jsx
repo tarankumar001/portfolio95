@@ -2,7 +2,6 @@ import { useEffect, useState, useContext } from 'react';
 import '../css/Notification.css';
 import { motion, AnimatePresence } from 'framer-motion';
 import UseContext from '../Context';
-import msnIcon from '../assets/msn.png';
 import icon_wins95 from '../assets/95icon.png';
 
 function Notification() {
@@ -51,22 +50,13 @@ function Notification() {
   
 
   function newNotification(messageType) {
-    switch (messageType) {
-      case 'msn':
-        return {
-          img: msnIcon,
-          text1: 'You got a new message!',
-          text2: '',
-          function: 'MSN'
-        };
-      default:
-        return {
-          img: icon_wins95,
-          text1: 'Welcome to My Windows 95 Portfolio! 🎉',
-          text2: 'It’s a fun, retro-styled space where I showcase my projects. Hope you enjoy exploring!',
-          function: ''
-        };
-    }
+    // Remove msn-specific notification
+    return {
+      img: icon_wins95,
+      text1: 'Welcome to My Portfolio! 🎉',
+      text2: 'It’s a fun, retro-styled space where I showcase my projects. Hope you enjoy exploring!',
+      function: ''
+    };
   }
 
   return (

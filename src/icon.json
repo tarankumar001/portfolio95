@@ -54,15 +54,6 @@
         "y": 5
     },
     {
-        "name": "MSN",
-        "pic": "MSN",
-        "folderId": "Desktop",
-        "size": 1500,
-        "type": ".exe",
-        "x": 6,
-        "y": 6
-    },
-    {
         "name": "Winamp",
         "pic": "Winamp",
         "folderId": "Utility",
@@ -80,15 +71,7 @@
         "x": 8,
         "y": 8
     },
-    {
-        "name": "Nft",
-        "pic": "Nft",
-        "folderId": "Project",
-        "size": 15,
-        "type": ".exe",
-        "x": 9,
-        "y": 9
-    },
+
     {
         "name": "Note",
         "pic": "Note",
@@ -133,15 +116,6 @@
         "type": "folder",
         "x": 14,
         "y": 14
-    },
-    {
-        "name": "Bitcoin",
-        "pic": "Bitcoin",
-        "folderId": "Utility",
-        "size": 500,
-        "type": ".exe",
-        "x": 15,
-        "y": 15
     },
     {
         "name": "001",
@@ -260,15 +234,7 @@
         "x": 28,
         "y": 28
     },
-    {
-        "name": "AiAgent",
-        "pic": "AiAgent",
-        "folderId": "Desktop",
-        "size": 10000,
-        "type": ".exe",
-        "x": 29,
-        "y": 29
-    },
+    
     {
         "name": "Cat",
         "pic": "Cat",

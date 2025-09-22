@@ -6,7 +6,6 @@ import Project from '../../assets/regFolder.png'
 import Winamp from '../../assets/winampIcon.png'
 import resumefile from '../../assets/resume.png'
 import MineSweeper from '../../assets/minesweepericon.png'
-import MSN from '../../assets/msn.png'
 import ie from '../../assets/ie.png'
 import settings from '../../assets/setting.png'
 import file from '../../assets/file4download.png'
@@ -29,7 +28,7 @@ import binEmp from '../../assets/bin2.png'
 import reset from '../../assets/reset.png'
 import github from '../../assets/github.png'
 import paint from '../../assets/paint.png'
-import aiagent from '../../assets/ai_robot.png'
+// aiagent removed
 import cat from '../../assets/catpic.png'
 import patch from '../../assets/patch.png'
 import ThreedObject from '../../assets/3dObject.png'
@@ -108,8 +107,7 @@ export function imageMapping (name, type) {
     case 'Mine Sweeper':
       return MineSweeper;
 
-    case 'MSN':
-      return MSN;
+    // MSN removed
 
     case 'Internet':
     case 'WebResume':
@@ -150,8 +148,7 @@ export function imageMapping (name, type) {
     case "Paint":
       return paint;
 
-    case "AiAgent":
-      return aiagent;
+    // AiAgent removed
 
     case "Cat":
     case "cat":
@@ -320,9 +317,7 @@ export function handleDoubleClickiframe(name, setOpenProjectExpand, setProjectUr
       setProjectUrl('https://fullstack-stickynotes.netlify.app/'); 
     break;
 
-    case 'AiAgent': 
-        setProjectUrl('https://yuteoctober.github.io/AI_chatbot/'); 
-    break;
+  // AiAgent removed
 
     case '3dObject': 
         setProjectUrl('https://yuteoctober.github.io/3d_book/'); 
@@ -348,9 +343,7 @@ export function handleDoubleTapiframeMobile(name, lastTapTime, setLastTapTime, s
         setProjectUrl('https://fullstack-stickynotes.netlify.app/'); 
         break;
   
-        case 'AiAgent': 
-        setProjectUrl('https://yuteoctober.github.io/AI_chatbot/'); 
-        break;
+  // AiAgent removed
 
         case '3dObject': 
         setProjectUrl('https://yuteoctober.github.io/3d_book/'); 
